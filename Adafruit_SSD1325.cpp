@@ -26,9 +26,6 @@ All text above, and the splash screen below must be included in any redistributi
 
 #include "glcdfont.c"
 
-// a 5x7 font table
-extern uint8_t PROGMEM font[];
-
 // the memory buffer for the LCD
 
 static uint8_t buffer[SSD1325_LCDHEIGHT * SSD1325_LCDWIDTH / 8] = {
@@ -127,8 +124,6 @@ void Adafruit_SSD1325::drawPixel(int16_t x, int16_t y, uint16_t color) {
 }
 
 void Adafruit_SSD1325::begin(void) {
-  constructor(128, 64);
-
   // set pin directions
   pinMode(sid, OUTPUT);
   pinMode(sclk, OUTPUT);
