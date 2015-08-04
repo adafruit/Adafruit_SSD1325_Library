@@ -25,8 +25,6 @@ All text above, and the splash screen must be included in any redistribution
 
 #include <Adafruit_GFX.h>
 
-#define swap(a, b) { uint8_t t = a; a = b; b = t; }
-
 #define BLACK 0
 #define WHITE 1
 
@@ -97,8 +95,10 @@ All text above, and the splash screen must be included in any redistribution
 
 class Adafruit_SSD1325 : public Adafruit_GFX {
  public:
-  Adafruit_SSD1325(int8_t SID, int8_t SCLK, int8_t DC, int8_t RST, int8_t CS) :sid(SID), sclk(SCLK), dc(DC), rst(RST), cs(CS) {}
-    Adafruit_SSD1325(int8_t SID, int8_t SCLK, int8_t DC, int8_t RST) :sid(SID), sclk(SCLK), dc(DC), rst(RST), cs(-1) {}
+  Adafruit_SSD1325(int8_t SID, int8_t SCLK, int8_t DC, int8_t RST, int8_t CS) : Adafruit_GFX(128,64), sid(SID), sclk(SCLK), dc(DC), rst(RST), cs(CS) {}
+
+  Adafruit_SSD1325(int8_t SID, int8_t SCLK, int8_t DC, int8_t RST) : Adafruit_GFX(128,64), sid(SID), sclk(SCLK), dc(DC), rst(RST), cs(-1) {}
+  Adafruit_SSD1325(int8_t DC, int8_t RST, int8_t CS) : Adafruit_GFX(128,64), sid(-1), sclk(-1), dc(DC), rst(RST), cs(CS) {}
 
 
   void begin(void);
@@ -110,14 +110,13 @@ class Adafruit_SSD1325 : public Adafruit_GFX {
   void setBrightness(uint8_t i);
   void display();
 
-  void drawPixel(uint16_t x, uint16_t y, uint16_t color);
+  void drawPixel(int16_t x, int16_t y, uint16_t color);
 
  private:
   int8_t sid, sclk, dc, rst, cs;
-  void fastSPIwrite(uint8_t c);
-  void slowSPIwrite(uint8_t c);
-
-  volatile uint8_t *mosiport, *clkport, *csport, *dcport;
-  uint8_t mosipinmask, clkpinmask, cspinmask, dcpinmask;
-
+  void spixfer(uint8_t x);
+#ifdef __AVR__
+  volatile uint8_t *mosiport, *clkport;
+  uint8_t mosipinmask, clkpinmask;
+#endif
 };
