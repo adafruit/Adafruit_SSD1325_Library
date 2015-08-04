@@ -25,10 +25,10 @@ All text above, and the splash screen below must be included in any redistributi
 #define OLED_RESET 13
 
 #include <Adafruit_GFX.h>
-#include <Adafruit_SSD1305.h>
+#include <Adafruit_SSD1325.h>
 #include <SPI.h>
 
-Adafruit_SSD1305 display(OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);
+Adafruit_SSD1325 display(OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);
 
 
 void setup(void) {

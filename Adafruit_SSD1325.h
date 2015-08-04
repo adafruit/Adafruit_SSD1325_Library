@@ -95,11 +95,16 @@ All text above, and the splash screen must be included in any redistribution
 
 class Adafruit_SSD1325 : public Adafruit_GFX {
  public:
+<<<<<<< HEAD
   Adafruit_SSD1325(int8_t SID, int8_t SCLK, int8_t DC, int8_t RST, int8_t CS) : Adafruit_GFX(128,64), sid(SID), sclk(SCLK), dc(DC), rst(RST), cs(CS) {}
 
   Adafruit_SSD1325(int8_t SID, int8_t SCLK, int8_t DC, int8_t RST) : Adafruit_GFX(128,64), sid(SID), sclk(SCLK), dc(DC), rst(RST), cs(-1) {}
   Adafruit_SSD1325(int8_t DC, int8_t RST, int8_t CS) : Adafruit_GFX(128,64), sid(-1), sclk(-1), dc(DC), rst(RST), cs(CS) {}
 
+=======
+  Adafruit_SSD1325(int8_t SID, int8_t SCLK, int8_t DC, int8_t RST, int8_t CS) : Adafruit_GFX(SSD1325_LCDWIDTH, SSD1325_LCDHEIGHT), sid(SID), sclk(SCLK), dc(DC), rst(RST), cs(CS) {}
+    Adafruit_SSD1325(int8_t SID, int8_t SCLK, int8_t DC, int8_t RST) : Adafruit_GFX(SSD1325_LCDWIDTH, SSD1325_LCDHEIGHT), sid(SID), sclk(SCLK), dc(DC), rst(RST), cs(-1) {}
+>>>>>>> a7ceffe0dd471aad7e5eeeaeb0fd0377d22ec684
 
   void begin(void);
   void command(uint8_t c);

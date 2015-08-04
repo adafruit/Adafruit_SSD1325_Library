@@ -31,6 +31,7 @@ All text above, and the splash screen below must be included in any redistributi
 #include "Adafruit_SSD1325.h"
 #include "glcdfont.c"
 
+<<<<<<< HEAD
 #ifdef SPI_HAS_TRANSACTION
 SPISettings oledspi = SPISettings(4000000, MSBFIRST, SPI_MODE0);
 #else
@@ -40,6 +41,8 @@ SPISettings oledspi = SPISettings(4000000, MSBFIRST, SPI_MODE0);
 // a 5x7 font table
 extern const uint8_t PROGMEM font[];
 
+=======
+>>>>>>> a7ceffe0dd471aad7e5eeeaeb0fd0377d22ec684
 // the memory buffer for the LCD
 
 static uint8_t buffer[SSD1325_LCDHEIGHT * SSD1325_LCDWIDTH / 8] = {
@@ -111,7 +114,11 @@ static uint8_t buffer[SSD1325_LCDHEIGHT * SSD1325_LCDWIDTH / 8] = {
 
 // the most basic function, set a single pixel
 void Adafruit_SSD1325::drawPixel(int16_t x, int16_t y, uint16_t color) {
+<<<<<<< HEAD
   if ((x >= width()) || (y >= height()) || (x < 0) || (y < 0))
+=======
+  if ((x < 0) || (x >= width()) || (y < 0) || (y >= height()))
+>>>>>>> a7ceffe0dd471aad7e5eeeaeb0fd0377d22ec684
     return;
 
   // check rotation, move pixel around if necessary
