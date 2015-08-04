@@ -26,8 +26,8 @@ All text above, and the splash screen below must be included in any redistributi
 
 // These are neede for both hardware & softare SPI
 #define OLED_CS 10
-#define OLED_DC 9
-#define OLED_RESET 8
+#define OLED_RESET 9
+#define OLED_DC 8
 
 // this is software SPI, slower but any pins
 Adafruit_SSD1325 display(OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);
