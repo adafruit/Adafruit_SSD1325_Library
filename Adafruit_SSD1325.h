@@ -25,6 +25,10 @@ All text above, and the splash screen must be included in any redistribution
 
 #include <Adafruit_GFX.h>
 
+#ifndef adagfx_swap
+#define adagfx_swap(a, b) { uint8_t t = a; a = b; b = t; }
+#endif
+
 #define BLACK 0
 #define WHITE 1
 

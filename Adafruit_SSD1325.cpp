@@ -117,7 +117,7 @@ void Adafruit_SSD1325::drawPixel(int16_t x, int16_t y, uint16_t color) {
   // check rotation, move pixel around if necessary
   switch (getRotation()) {
   case 1:
-    AdaGFX_swap(x, y);
+    adagfx_swap(x, y);
     x = WIDTH - x - 1;
     break;
   case 2:
@@ -125,7 +125,7 @@ void Adafruit_SSD1325::drawPixel(int16_t x, int16_t y, uint16_t color) {
     y = HEIGHT - y - 1;
     break;
   case 3:
-    AdaGFX_swap(x, y);
+    adagfx_swap(x, y);
     y = HEIGHT - y - 1;
     break;
   }  
@@ -170,7 +170,7 @@ void Adafruit_SSD1325::begin(void) {
   // bring out of reset
   digitalWrite(rst, HIGH);
 
-  Serial.println("reset");
+  //Serial.println("reset");
   delay(500);
   command(SSD1325_DISPLAYOFF); /* display off */
   command(SSD1325_SETCLOCK); /* set osc division */
