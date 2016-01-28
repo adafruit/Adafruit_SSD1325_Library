@@ -16,6 +16,8 @@ BSD license, check license.txt for more information
 All text above, and the splash screen below must be included in any redistribution
 *********************************************************************/
 
+#define wordswap(a, b) { int16_t t = a; a = b; b = t; }
+
 #ifdef __AVR__
  #include <avr/pgmspace.h>
  #include <util/delay.h>
@@ -117,7 +119,7 @@ void Adafruit_SSD1325::drawPixel(int16_t x, int16_t y, uint16_t color) {
   // check rotation, move pixel around if necessary
   switch (getRotation()) {
   case 1:
-    adagfxswap(x, y);
+    wordswap(x, y);
     x = WIDTH - x - 1;
     break;
   case 2:
@@ -125,7 +127,7 @@ void Adafruit_SSD1325::drawPixel(int16_t x, int16_t y, uint16_t color) {
     y = HEIGHT - y - 1;
     break;
   case 3:
-    adagfxswap(x, y);
+    wordswap(x, y);
     y = HEIGHT - y - 1;
     break;
   }  
