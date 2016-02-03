@@ -33,6 +33,10 @@ All text above, and the splash screen below must be included in any redistributi
 #include "Adafruit_SSD1325.h"
 #include "glcdfont.c"
 
+#ifndef AdaGFX_swap
+  #define AdaGFX_swap(a, b) { int16_t t = a; a = b; b = t; }
+#endif
+
 #ifdef SPI_HAS_TRANSACTION
 SPISettings oledspi = SPISettings(4000000, MSBFIRST, SPI_MODE0);
 #else
