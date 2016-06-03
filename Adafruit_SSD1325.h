@@ -23,6 +23,10 @@ All text above, and the splash screen must be included in any redistribution
  #include "WProgram.h"
 #endif
 
+#ifdef __arm__
+#define _BV(b) (1<<(b))
+#endif
+
 #include <Adafruit_GFX.h>
 
 #ifndef adagfx_swap
