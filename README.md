@@ -1,3 +1,5 @@
+# Adafruit SSD1325 Library [![Build Status](https://github.com/adafruit/Adafruit_SSD1325_Library/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_SSD1325_Library/actions)[![Documentation](https://github.com/adafruit/ci-arduino/blob/master/assets/doxygen_badge.svg)](http://adafruit.github.io/Adafruit_SSD1325_Library/html/index.html)
+
 This is a library for our Monochrome/Grayscale OLEDs based on SSD1325 drivers
 
   Pick one up today in the adafruit shop!
