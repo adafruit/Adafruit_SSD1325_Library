@@ -33,6 +33,7 @@
 #include <util/delay.h>
 #elif defined(ESP8266)
 #include <pgmspace.h>
+#elif defined(TARGET_RP2040)
 #else
 #define pgm_read_byte(addr)                                                    \
   (*(const unsigned char *)(addr)) //!< PROGMEM workaround for non-AVR
@@ -145,13 +146,17 @@ static uint8_t buffer[SSD1325_LCDHEIGHT * SSD1325_LCDWIDTH / 8] = {
 
 // the most basic function, set a single pixel
 void Adafruit_SSD1325::drawPixel(int16_t x, int16_t y, uint16_t color) {
+  int16_t t;
+
   if ((x >= width()) || (y >= height()) || (x < 0) || (y < 0))
     return;
 
   // check rotation, move pixel around if necessary
   switch (getRotation()) {
   case 1:
-    _swap_int16_t(x, y);
+    t = x;
+    x = y;
+    y = t;
     x = WIDTH - x - 1;
     break;
   case 2:
@@ -159,7 +164,9 @@ void Adafruit_SSD1325::drawPixel(int16_t x, int16_t y, uint16_t color) {
     y = HEIGHT - y - 1;
     break;
   case 3:
-    _swap_int16_t(x, y);
+    t = x;
+    x = y;
+    y = t;
     y = HEIGHT - y - 1;
     break;
   }

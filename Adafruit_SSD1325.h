@@ -12,7 +12,6 @@
 
 #include <Adafruit_GFX.h>
 
-
 #define BLACK 0 //!< Draw 'off' pixels
 #define WHITE 1 //!< Draw 'on' pixels
 
@@ -167,6 +166,5 @@ private:
   uint8_t mosipinmask, clkpinmask;
 #endif
 };
-
 
 #endif
