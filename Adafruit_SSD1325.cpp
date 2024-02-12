@@ -151,7 +151,7 @@ void Adafruit_SSD1325::drawPixel(int16_t x, int16_t y, uint16_t color) {
   // check rotation, move pixel around if necessary
   switch (getRotation()) {
   case 1:
-    adagfx_swap(x, y);
+    _swap_int16_t(x, y);
     x = WIDTH - x - 1;
     break;
   case 2:
@@ -159,7 +159,7 @@ void Adafruit_SSD1325::drawPixel(int16_t x, int16_t y, uint16_t color) {
     y = HEIGHT - y - 1;
     break;
   case 3:
-    adagfx_swap(x, y);
+    _swap_int16_t(x, y);
     y = HEIGHT - y - 1;
     break;
   }

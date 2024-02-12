@@ -1,12 +1,10 @@
 /*!
  * @file Adafruit_SSD1325.h
  */
+#ifndef _Adafruit_SSD1325_H_
+#define _Adafruit_SSD1325_H_
 
-#if ARDUINO >= 100
 #include "Arduino.h"
-#else
-#include "WProgram.h"
-#endif
 
 #ifdef __arm__
 #define _BV(b) (1 << (b))
@@ -14,14 +12,6 @@
 
 #include <Adafruit_GFX.h>
 
-#ifndef adagfx_swap
-#define adagfx_swap(a, b)                                                      \
-  {                                                                            \
-    uint8_t t = a;                                                             \
-    a = b;                                                                     \
-    b = t;                                                                     \
-  } //!< Lets you rotate stuff
-#endif
 
 #define BLACK 0 //!< Draw 'off' pixels
 #define WHITE 1 //!< Draw 'on' pixels
@@ -177,3 +167,6 @@ private:
   uint8_t mosipinmask, clkpinmask;
 #endif
 };
+
+
+#endif
